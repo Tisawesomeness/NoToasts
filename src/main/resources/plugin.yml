@@ -1,0 +1,7 @@
+name: NoToasts
+version: '${version}'
+main: com.tisawesomeness.notoasts.NoToasts
+api-version: 1.19
+softdepend: [ ViaVersion, FreedomChat ]
+authors: [ Tis_awesomeness ]
+description: Disables those annoying warning toasts
