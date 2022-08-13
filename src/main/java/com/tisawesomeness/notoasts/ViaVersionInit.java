@@ -2,23 +2,24 @@ package com.tisawesomeness.notoasts;
 
 import com.viaversion.viaversion.api.Via;
 import com.viaversion.viaversion.api.protocol.Protocol;
+import com.viaversion.viaversion.api.protocol.packet.State;
 import com.viaversion.viaversion.api.protocol.remapper.PacketRemapper;
 import com.viaversion.viaversion.api.protocol.version.ProtocolVersion;
 import com.viaversion.viaversion.api.type.Type;
-import com.viaversion.viaversion.protocols.protocol1_19_1to1_19.ClientboundPackets1_19_1;
-import com.viaversion.viaversion.protocols.protocol1_19to1_18_2.ClientboundPackets1_19;
 
 public class ViaVersionInit {
 
+    private static final int SERVER_DATA_1_19 = 0x3F;
+    private static final int SERVER_DATA_1_19_1 = 0x42;
+
     public ViaVersionInit() {
         var lib = Via.getManager().getProtocolManager();
-        @SuppressWarnings("unchecked")
-        Protocol<ClientboundPackets1_19, ClientboundPackets1_19_1, ?, ?> protocol = lib.getProtocol(
+        Protocol<?, ?, ?, ?> protocol = lib.getProtocol(
                 ProtocolVersion.v1_19_1, ProtocolVersion.v1_19);
         if (protocol == null) {
             throw new RuntimeException("Could not find protocol 1.19-1.19.1");
         }
-        protocol.registerClientbound(ClientboundPackets1_19.SERVER_DATA, ClientboundPackets1_19_1.SERVER_DATA,
+        protocol.registerClientbound(State.PLAY, SERVER_DATA_1_19, SERVER_DATA_1_19_1,
                 new ServerDataRemapper(), true);
     }
 

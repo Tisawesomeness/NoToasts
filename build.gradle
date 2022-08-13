@@ -26,7 +26,6 @@ dependencies {
     compileOnly 'org.spigotmc:spigot:1.19-R0.1-SNAPSHOT'
 
     implementation "com.viaversion:viaversion-api:4.4.0"
-    implementation "com.viaversion:viaversion:4.4.0"
 
     // frengor's TinyProtocol included with modifications
     // Licensed under GPL-2 because the original TinyProtocol in the ProtocolLib project is GPL-2
